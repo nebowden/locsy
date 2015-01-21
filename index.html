@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LOCSY</title>
+	<link rel="stylesheet" href="css/main.css">
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="app.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,900|Open+Sans' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/font-awesome-4.2.0/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="section group">
+		<header>
+				<h1>LOCSY</h1>
+				<h2>Using images from the Library of Congress to inspire new Etsy discoveries.</h2>
+		</header>
+		<div class="loc-container col span_7_of_8 one-offset">
+			<h3 class="step-number"><i class="fa fa-search"></i></h3>
+			<h3>Step 1: Get Images from the Library of Congress</h3>
+			<!--<p>Let history be your guide to finding new and interesting items and shops on Etsy!</p>-->
+			<p class="instructions">Let's start by getting a few images from the Library of Congress.</p>
+			<form id="user-search-form">
+				<input type="text" placeholder="type a keyword here" name="user-search"  required id="search-field">
+				<input type="submit" id="submit-button">
+			</form>
+		</div>
+		<div class="loc-results-container col span_7_of_8 one-offset">
+			<h3 class="step-number"><i class="fa fa-camera-retro"></i></h3>
+			<h3>Step 2: Select an Image You Like</h3>
+			<p class="instructions">Next, select a Library of Congress image below to inspire new Etsy finds.</p>
+			<div class="loc-image-subcontainer">
+			<!--example starts here-->
+				<div class="result-loc">
+					<a href=""><img src="https://c4.staticflickr.com/8/7057/7011021733_43c0103f97_k.jpg">
+					</a>
+				</div>
+				<div class="result-loc">
+					<a href=""><img src="https://c4.staticflickr.com/8/7057/7011021733_43c0103f97_k.jpg">
+					</a>
+				</div>
+			<!--example ends here-->
+			</div>
+		</div>
+		<div class="etsy-container col span_7_of_8 one-offset">
+			<h3 class="step-number"><i class="fa fa-heart"></i></h3>
+			<h3>Step 3: Discover Etsy Items</h3>	
+			<p class="instructions">Click on any Etsy item to go to the shop and learn more!</p>
+			<div class="etsy-images">
+				<!--example starts here -->
+				<div class="result-etsy">
+					<a href="" target="_blank">
+						<img src="https://c4.staticflickr.com/8/7057/7011021733_43c0103f97_k.jpg" class="item-image">
+					</a>
+					<p class="item-name">Church wall hanging</p>
+					<p class="shop-name">FinePrints</p>
+					<p class="amount">$30</p>
+				</div>
+				<div class="result-etsy">
+					<a href="" target="_blank">
+						<img src="https://c4.staticflickr.com/8/7057/7011021733_43c0103f97_k.jpg" class="item-image">
+					</a>
+					<p class="item-name">Church wall hanging</p>
+					<p class="shop-name">FinePrints</p>
+					<p class="amount">$30</p>
+				</div>
+				<!--example ends here-->
+			</div>
+		</div>
+		<div class="etsy-disclaimer col span_7_of_8 one-offset">
+			<p>The term "Etsy" is a trademark of Etsy, Inc. This application uses the Etsy API but is not endorsed or certified by Etsy, Inc.</p>
+		</div>
+	</div>
+	<div class="templates hidden">
+		<div class="result-loc"><a href=""></a></div>
+		<div class="result-etsy">
+			<a href="" target="_blank">
+				<img src="" class="item-image">
+			</a>
+			<p class="item-name"></p>
+			<p class="shop-name"></p>
+			<p class="amount"></p>
+		</div>
+	</div>
+</body>

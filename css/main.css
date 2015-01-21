@@ -1,0 +1,284 @@
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.3%;
+}
+
+/*.col:first-child { margin-left: 0; }*/
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+/*  GRID OF EIGHT  */
+.span_8_of_8 {
+	width: 100%;
+}
+
+.span_7_of_8 {
+  	width: 95%;
+}
+
+.span_6_of_8 {
+  	width: 74.67%;
+}
+
+.span_5_of_8 {
+  	width: 62.01%;
+}
+
+.span_4_of_8 {
+  	width: 49.35%;
+}
+
+.span_3_of_8 {
+  	width: 36.68%;
+}
+
+.span_2_of_8 {
+  	width: 24.02%;
+}
+
+.span_1_of_8 {
+  	width: 11.36%;
+}
+
+.one-offset {
+  margin-left: 2.5%;
+}
+
+.two-offset {
+  margin-left: 25.4%;
+}
+
+.three-offset {
+  margin-left: 38.1%;
+}
+
+.four-offset {
+  margin-left: 50.8%;
+}
+
+.five-offset {
+  margin-left: 63.5%;
+}
+
+.six-offset {
+  margin-left: 76.2%;
+}
+
+.seven-offset {
+  margin-left: 88.9%;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+}
+.section {
+	background: url("../images/books1.jpg") no-repeat center left fixed;
+	background-size: cover;
+	min-height: 100%;
+}
+
+header {
+	background: url("../images/books1.jpg") no-repeat center left fixed;
+	background-size: cover;
+	text-align: center;
+	color: yellow;
+	padding: 3.8% 0 2.8% 0;
+	/*border-bottom: .8em solid #465f73;;*/
+}
+
+header > h1 {
+	font-family: 'playfair display', serif;
+	font-size: 80px;
+	letter-spacing: .25em;
+	margin: 0;
+	line-height: 1;
+}
+
+header > h2 {
+	font-family: 'open sans' sans-serif;
+	font-size: 16px;
+	border-top: 1px solid yellow;
+	display: inline-block;
+}
+
+.loc-container, .loc-results-container, .etsy-container {
+	min-height: 400px;
+	background-color: rgba(255, 255, 255, .85);
+	margin-top: 0;
+	text-align: center;
+}
+
+.step-number {
+	border-top: 4px solid yellow;
+	border-bottom: 4px solid yellow;
+	text-align: center;
+	color: #465f73;
+	font-family: 'open sans';
+	font-weight: bold;
+	font-size: 30px;
+	display: inline-block;
+	width: 35px;
+	margin: 40px 0 0 0;
+}
+
+.instructions {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-family: 'open sans', sans-serif;
+	color: #465f73;
+}
+
+h3 {
+	font-family: 'playfair display', serif;
+	color: #465f73;	
+	text-align: center;
+	font-size: 25px;
+	margin-top: 10px;
+}
+
+#user-search-form, .loc-image-subcontainer, .etsy-images {
+	margin-top: 65px;
+}
+
+#search-field, #submit-button {
+	font-size: 20px;
+	font-family: 'open sans';
+	color: #465f73;
+}
+
+#search-field {
+	border: none;
+	border-bottom: 3px solid yellow;
+	background-color: rgba(255, 255, 255, 0);
+	margin-right: 15px;
+}
+
+#search-field:focus {
+	outline: none;
+}
+
+#submit-button {
+	border: 3px solid yellow;
+	background-color: rgba(255, 255, 255, 0);
+	font-weight: bold;
+}
+
+#submit-button:hover {
+	background-color: yellow;
+}
+
+.loc-results-container, .etsy-container {
+	min-height: 600px;
+}
+
+.loc-image-subcontainer {
+	max-width: 74.67%;
+	margin-left: auto;
+	margin-right: auto;
+	/*border: 5px solid #465f73;*/
+	min-height: 185px;
+	/*background-color: #CFD9CE;*/
+	background-color: white;
+	text-align: left;
+}
+
+.submit-button {
+ 	background-color: #CFD9CE;
+ }
+
+
+
+/* change this to template*/
+.loc-image-subcontainer img {
+	width: 10%;
+	min-width: 100px;
+	float: left;
+}
+
+.result-etsy img {
+	width: 100%;
+}
+
+.result-etsy {
+	width: 10%;
+	min-width: 100px;
+	background-color: white;
+	text-align: left;
+	font-family: 'open sans', sans-serif;
+	font-size: 12px;
+	padding: 2px;
+	margin: 2px;
+	display: inline-block;
+}
+
+.item-name {
+	margin: 0 0 6px 0;
+	font-weight: bold;
+}
+
+.shop-name {
+	margin: 0;
+	display: inline-block;
+}
+
+.amount {
+	margin: 0;
+	display: inline-block;
+	float: right;
+}
+
+.etsy-images {
+	max-width: 74.67%;
+	margin-left: auto;
+	margin-right: auto;
+	border: 5px solid #465f73;
+	min-height: 185px;
+	background-color: #465f73;
+	text-align: left;
+}
+
+.etsy-disclaimer {
+	text-align: center;
+	font-size: 16px;
+	font-family: 'open-sans', sans-serif;
+	color: white;
+	bottom: 0;
+	position: fixed; 
+}
+
+.hidden {
+	display: none;
+}
+
+.loc-results-container, .etsy-container {
+	display: none;
+}
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+	.col {  margin: 1% 0 1% 0%; }
+	.span_1_of_8, .span_2_of_8, .span_3_of_8, .span_4_of_8, .span_5_of_8, .span_6_of_8, .span_7_of_8, .span_8_of_8 { width: 100%; }
+	.etsy-images, .loc-image-subcontainer {max-width: 95%}
+}
+
+@media only screen and (max-width: 375px) {
+	header > h1 {font-size: 60px;}
+	#search-field, #submit-button {
+	font-size: 18px;
+}
