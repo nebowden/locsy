@@ -191,7 +191,7 @@ h3 {
 	max-width: 74.67%;
 	margin-left: auto;
 	margin-right: auto;
-	/*border: 5px solid #465f73;*/
+	border: 5px solid #465f73;
 	min-height: 185px;
 	/*background-color: #CFD9CE;*/
 	background-color: white;
@@ -202,13 +202,17 @@ h3 {
  	background-color: #CFD9CE;
  }
 
-
-
-/* change this to template*/
-.loc-image-subcontainer img {
+.result-loc {
 	width: 10%;
-	min-width: 100px;
-	float: left;
+	display: inline-block;
+}
+
+.loc-image {
+	width: 100%;
+}
+
+.loc-link, .loc-image {
+	vertical-align: top;
 }
 
 .result-etsy img {
@@ -266,19 +270,26 @@ h3 {
 	display: none;
 }
 
-.loc-results-container, .etsy-container {
+/*.loc-results-container, .etsy-container {
 	display: none;
-}
+}*/
 
 /*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 950px) {
+	.result-loc {width: 14.28%;}
+}
+@media only screen and (max-width: 720px) {
+	.result-loc {width: 16.66%;}
+}
 @media only screen and (max-width: 480px) {
 	.col {  margin: 1% 0 1% 0%; }
 	.span_1_of_8, .span_2_of_8, .span_3_of_8, .span_4_of_8, .span_5_of_8, .span_6_of_8, .span_7_of_8, .span_8_of_8 { width: 100%; }
 	.etsy-images, .loc-image-subcontainer {max-width: 95%}
+	.result-loc {width: 20%;}
 }
 
 @media only screen and (max-width: 375px) {
 	header > h1 {font-size: 60px;}
 	#search-field, #submit-button {
-	font-size: 18px;
+	font-size: 18px;}
 }
