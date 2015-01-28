@@ -183,9 +183,10 @@ h3 {
 	background-color: yellow;
 }
 
-.loc-results-container, .etsy-container {
+/*.loc-results-container, .etsy-container {
 	min-height: 600px;
-}
+
+}*/
 
 .loc-image-subcontainer {
 	max-width: 74.67%;
@@ -196,6 +197,7 @@ h3 {
 	/*background-color: #CFD9CE;*/
 	background-color: white;
 	text-align: left;
+	margin-bottom: 100px;
 }
 
 .submit-button {
@@ -220,31 +222,35 @@ h3 {
 }
 
 .result-etsy {
-	width: 10%;
-	min-width: 100px;
+	width: 10.5%;
+	/*min-width: 100px;*/
 	background-color: white;
 	text-align: left;
 	font-family: 'open sans', sans-serif;
 	font-size: 12px;
-	padding: 2px;
-	margin: 2px;
+	padding: .5%;
+	margin: .5%;
 	display: inline-block;
 }
 
 .item-name {
 	margin: 0 0 6px 0;
 	font-weight: bold;
+	height: 34px;
+	overflow: hidden;
 }
 
 .shop-name {
 	margin: 0;
 	display: inline-block;
+	width: 100%;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 .amount {
 	margin: 0;
 	display: inline-block;
-	float: right;
 }
 
 .etsy-images {
@@ -255,19 +261,51 @@ h3 {
 	min-height: 185px;
 	background-color: #465f73;
 	text-align: left;
+	margin-bottom: 100px;
 }
 
 .etsy-disclaimer {
-	text-align: center;
 	font-size: 16px;
 	font-family: 'open-sans', sans-serif;
-	color: white;
-	bottom: 0;
-	position: fixed; 
+	color: #465f73;
 }
 
 .hidden {
 	display: none;
+}
+
+.highlighted {
+	outline: 5px solid yellow;
+	outline-offset: -5px;
+}
+
+.deemphasized {
+	opacity: .7;
+}
+
+.up-button {
+	float: right;
+	position: fixed;
+	right: 5px;
+	top: 5px;
+	color: white;
+	background-color: rgba(70, 95, 115, .6);
+	text-align: center;
+	padding: 2px;
+	font-size: 14px;
+}
+
+.up-button > a {
+	color: inherit;
+}
+.up-button > a:hover {
+	color: yellow;
+}
+
+.up-button p {
+	font-family: 'open sans', sans-serif;
+	font-weight: bold;
+	margin: 0;
 }
 
 /*.loc-results-container, .etsy-container {
@@ -277,9 +315,11 @@ h3 {
 /*  GO FULL WIDTH BELOW 480 PIXELS */
 @media only screen and (max-width: 950px) {
 	.result-loc {width: 14.28%;}
+	.result-etsy {width: 18%;}
 }
 @media only screen and (max-width: 720px) {
 	.result-loc {width: 16.66%;}
+	.result-etsy {width: 23%;}
 }
 @media only screen and (max-width: 480px) {
 	.col {  margin: 1% 0 1% 0%; }
