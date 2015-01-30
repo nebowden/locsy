@@ -1,3 +1,5 @@
+/*GRID SETUP*/
+
 /*  SECTIONS  */
 .section {
 	clear: both;
@@ -11,8 +13,6 @@
 	float:left;
 	margin: 1% 0 1% 1.3%;
 }
-
-/*.col:first-child { margin-left: 0; }*/
 
 /*  GROUPING  */
 .group:before,
@@ -87,19 +87,19 @@ html, body {
 body {
 	margin: 0;
 }
+
+/*page background image*/
 .section {
 	background: url("../images/books1.jpg") no-repeat center left fixed;
 	background-size: cover;
 	min-height: 100%;
 }
 
+/*page header styling*/
 header {
-	background: url("../images/books1.jpg") no-repeat center left fixed;
-	background-size: cover;
 	text-align: center;
 	color: yellow;
 	padding: 3.8% 0 2.8% 0;
-	/*border-bottom: .8em solid #465f73;;*/
 }
 
 header > h1 {
@@ -116,6 +116,8 @@ header > h2 {
 	border-top: 1px solid yellow;
 	display: inline-block;
 }
+
+/*general container styling*/
 
 .loc-container, .loc-results-container, .etsy-container {
 	min-height: 400px;
@@ -156,6 +158,8 @@ h3 {
 	margin-top: 65px;
 }
 
+/*search form styling*/
+
 #search-field, #submit-button {
 	font-size: 20px;
 	font-family: 'open sans';
@@ -183,26 +187,18 @@ h3 {
 	background-color: yellow;
 }
 
-/*.loc-results-container, .etsy-container {
-	min-height: 600px;
-
-}*/
+/*styling for loc results container*/
 
 .loc-image-subcontainer {
 	max-width: 74.67%;
 	margin-left: auto;
 	margin-right: auto;
 	border: 5px solid #465f73;
-	min-height: 185px;
-	/*background-color: #CFD9CE;*/
+	min-height: 100px;
 	background-color: white;
 	text-align: left;
 	margin-bottom: 100px;
 }
-
-.submit-button {
- 	background-color: #CFD9CE;
- }
 
 .result-loc {
 	width: 10%;
@@ -217,13 +213,36 @@ h3 {
 	vertical-align: top;
 }
 
-.result-etsy img {
-	width: 100%;
+.highlighted {
+	outline: 5px solid yellow;
+	outline-offset: -5px;
+}
+
+.deemphasized {
+	opacity: .7;
+}
+
+/*styling for Etsy results container*/
+
+.etsy-images {
+	max-width: 74.67%;
+	margin-left: auto;
+	margin-right: auto;
+	border: 5px solid #465f73;
+	min-height: 185px;
+	background-color: #465f73;
+	text-align: left;
+	margin-bottom: 100px;
+}
+
+.etsy-disclaimer {
+	font-size: 16px;
+	font-family: 'open-sans', sans-serif;
+	color: #465f73;
 }
 
 .result-etsy {
 	width: 10.5%;
-	/*min-width: 100px;*/
 	background-color: white;
 	text-align: left;
 	font-family: 'open sans', sans-serif;
@@ -231,6 +250,10 @@ h3 {
 	padding: .5%;
 	margin: .5%;
 	display: inline-block;
+}
+
+.item-image {
+	width: 100%;
 }
 
 .item-name {
@@ -253,36 +276,7 @@ h3 {
 	display: inline-block;
 }
 
-.etsy-images {
-	max-width: 74.67%;
-	margin-left: auto;
-	margin-right: auto;
-	border: 5px solid #465f73;
-	min-height: 185px;
-	background-color: #465f73;
-	text-align: left;
-	margin-bottom: 100px;
-}
-
-.etsy-disclaimer {
-	font-size: 16px;
-	font-family: 'open-sans', sans-serif;
-	color: #465f73;
-}
-
-.hidden {
-	display: none;
-}
-
-.highlighted {
-	outline: 5px solid yellow;
-	outline-offset: -5px;
-}
-
-.deemphasized {
-	opacity: .7;
-}
-
+/*styling for "return to top" buttons*/
 .up-button {
 	float: right;
 	position: fixed;
@@ -295,10 +289,11 @@ h3 {
 	font-size: 14px;
 }
 
-.up-button > a {
+.top-link {
 	color: inherit;
+	text-decoration: none;
 }
-.up-button > a:hover {
+.top-link:hover {
 	color: yellow;
 }
 
@@ -308,11 +303,29 @@ h3 {
 	margin: 0;
 }
 
-/*.loc-results-container, .etsy-container {
-	display: none;
-}*/
+.mobile-up-button {
+	width: 15%;
+	position: fixed;
+	bottom: 0;
+	margin-left: 42.5%;
+	text-align: center;
+	background-color: rgba(70, 95, 115, .6);
+	color: white;
+	border-radius: 33% 33% 0 0;
+	font-family: 'open sans', sans-serif;
+	font-weight: bold;
+}
 
-/*  GO FULL WIDTH BELOW 480 PIXELS */
+.mobile-up-button p {
+	margin: .5em 0;
+}
+
+/*styling for hidden divs*/
+.hidden {
+	display: none;
+}
+
+/*  media queries */
 @media only screen and (max-width: 950px) {
 	.result-loc {width: 14.28%;}
 	.result-etsy {width: 18%;}
