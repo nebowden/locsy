@@ -1,5 +1,11 @@
 $(document).ready( function() {
 
+	var locImageSubcontainer = $(".loc-image-subcontainer");
+	var locResultsContainer = $(".loc-results-container");
+	var etsyImages = $(".etsy-images");
+	var etsyContainer = $(".etsy-container");
+	var upButton = $(".up-button");
+	var mobileUpButton = $(".mobile-up-button");
 	var etsyKey = "lw0y75472kxputmk49tlocx6";
 
 	//setting etsy result counter to 0
@@ -10,9 +16,9 @@ $(document).ready( function() {
 
 	//method for clearing loc and etsy results froom containers
 	var clearResults = function() {
-		$(".loc-image-subcontainer").html("");
-		$(".etsy-images").html("");
-		$(".etsy-container").addClass("hidden");
+		locImageSubcontainer.html("");
+		etsyImages.html("");
+		etsyContainer.addClass("hidden");
 	};
 
 	//method for displaying images obtained from loc api query
@@ -47,7 +53,6 @@ $(document).ready( function() {
 			dataType: "jsonp"
 		})
 		.done(function(result){
-			console.log(result.results);
 			var picCount = 0;
 			if(result.results.length==0) {
 				alert("Gulp! We couldn't find any images at the Library of Congress based on your search terms. Please try a different search.");
@@ -55,14 +60,14 @@ $(document).ready( function() {
 			$.each(result.results, function(index, photo){
 				var locImage = showLocImages(photo);
 				if (photo.image.alt != "item not digitized thumbnail" && photo.image.alt != "group item thumbnail"  && photo.image.alt != "Look magazine thumbnail" && photo.image.alt != "habs/haer thumbnail") {
-					$(".loc-image-subcontainer").append(locImage);
+					locImageSubcontainer.append(locImage);
 					picCount = picCount + 1;
 				};
 				if (picCount==20) return false;
 			});
-			$(".loc-results-container").removeClass("hidden");
+			locResultsContainer.removeClass("hidden");
 			$('html, body').animate({
-		    	scrollTop: $(".loc-results-container").offset().top - 10
+		    	scrollTop: locResultsContainer.offset().top - 10
 				}, 1000);
 			};
 		});
@@ -85,21 +90,19 @@ $(document).ready( function() {
 		})
 		.done(function(result){
 			etsyApiCycle = etsyApiCycle + 1;
-			console.log(result.results);
 			if (((result.results.length+numberEtsyResults) == 0) && (etsyApiCycle==3)){
 				alert("Sorry, we couldn't find any Etsy items based on your selected image. Please choose another.")
 			} else if (numberEtsyResults < 5){
 				if (result.results.length>0){
 					$('html, body').animate({
-		    		scrollTop: $(".etsy-container").offset().top
+		    		scrollTop: etsyContainer.offset().top
 					}, 1000);
 				}
 				$.each(result.results, function(index, listing){
 					numberEtsyResults = numberEtsyResults + 1;
 					var etsyListing = showEtsyItems(listing);
-					$(".etsy-images").append(etsyListing);
+					etsyImages.append(etsyListing);
 				});
-				//console.log(numberEtsyResults);
 			};
 		});
 	};
@@ -131,20 +134,20 @@ $(document).ready( function() {
 	$(window).scroll(function(event){
 		event.preventDefault();
 		if($(window).width() > 500) {
-			$(".mobile-up-button").addClass("hidden");	
+			mobileUpButton.addClass("hidden");	
 		};
 		if ($(window).width() < 500) {
-			$(".up-button").addClass("hidden");
+			upButton.addClass("hidden");
 		};
 		if($(window).scrollTop() > 300 && ($(window).width() > 500)) {
-		$(".up-button").removeClass("hidden");
+		upButton.removeClass("hidden");
 		};
 		if($(window).scrollTop() < 300) {
-		$(".up-button").addClass("hidden");
-		$(".mobile-up-button").addClass("hidden");
+		upButton.addClass("hidden");
+		mobileUpButton.addClass("hidden");
 		};
 		if($(window).scrollTop() > 300 && ($(window).width() < 500)) {
-		$(".mobile-up-button").removeClass("hidden");
+		mobileUpButton.removeClass("hidden");
 		};
 
 	});
@@ -168,7 +171,7 @@ $(document).ready( function() {
 		});
 
 	//running etsy api call on loc image click and displaying results
-	$(".loc-image-subcontainer").on("click", ".loc-link", function(event){
+	locImageSubcontainer.on("click", ".loc-link", function(event){
 		event.preventDefault();
 		numberEtsyResults = 0;
 		etsyApiCycle = 0;
@@ -176,27 +179,26 @@ $(document).ready( function() {
 		//truncate data from loc image fo etsy search
 		var keyword = $("#search-field").val();
 		var searchTerms = $(this).attr("data-subject");
-		var spaceAdjusted = searchTerms.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()0-9\[\]]/g," ").replace(/\s{2,}/g," ").replace(/^(.{21}[^\s]*).*/, "$1");
+		var spaceAdjusted = searchTerms.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()0-9\[\]]/g," ")//replace non-alpha characters with space
+			.replace(/\s{2,}/g," ")//replace double spaces with single spaces
+			.replace(/^(.{21}[^\s]*).*/, "$1");//truncate string to last whole word at 21 characters
 		var finalStringTwenty = spaceAdjusted + " " + keyword;
-		var finalStringTen = spaceAdjusted.replace(/^(.{11}[^\s]*).*/, "$1") + " " + keyword;
+		var finalStringTen = spaceAdjusted.replace(/^(.{11}[^\s]*).*/, "$1") + " " + keyword; //truncate string to closest whole word at 11 characters
 
 		//highlight image selected and remove any prior results when a different image is selected 
 		$(this).closest(".loc-image-subcontainer").find(".result-loc").removeClass("highlighted");
 		$(this).closest(".result-loc").removeClass("deemphasized").addClass("highlighted");
 		$(".result-loc").not(".highlighted").addClass("deemphasized");
 		$(".etsy-images").empty();
-		$(".etsy-container").removeClass("hidden");
+		etsyContainer.removeClass("hidden");
 
 		//loop for etsy API calls broadening on each successive step
 		for (var i = 0; i<3; i++) {
 				if (i==0){
-					console.log(finalStringTwenty);
 					getEtsyItems(finalStringTwenty);
 				} else if (i==1) {
-					console.log(finalStringTen);
 					getEtsyItems(finalStringTen);
 				} else if (i==2) {
-					console.log(keyword);
 					getEtsyItems(keyword);
 				};
 		};
